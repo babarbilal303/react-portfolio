@@ -83,8 +83,9 @@ export const ContactUs = () => {
             <Alert
               //show={formData.show}
               variant={formData.variant}
-              className={`rounded-0 co_alert ${formData.show ? "d-block" : "d-none"
-                }`}
+              className={`rounded-0 co_alert ${
+                formData.show ? "d-block" : "d-none"
+              }`}
               onClose={() => setFormdata({ show: false })}
               dismissible
             >
@@ -111,7 +112,11 @@ export const ContactUs = () => {
             {/* <p>{contactConfig.description}</p> */}
           </Col>
           <Col lg="7" className="d-flex align-items-center">
-            <form onSubmit={handleSubmit} className="contact__form w-100">
+            <form
+              action="https://formspree.io/f/xyzypaje"
+              method="POST"
+              className="contact__form w-100"
+            >
               <Row>
                 <Col lg="6" className="form-group">
                   <input
@@ -119,10 +124,8 @@ export const ContactUs = () => {
                     id="name"
                     name="name"
                     placeholder="Name"
-                    value={formData.name || ""}
                     type="text"
                     required
-                    onChange={handleChange}
                   />
                 </Col>
                 <Col lg="6" className="form-group">
@@ -132,9 +135,8 @@ export const ContactUs = () => {
                     name="email"
                     placeholder="Email"
                     type="email"
-                    value={formData.email || ""}
                     required
-                    onChange={handleChange}
+                   
                   />
                 </Col>
               </Row>
@@ -144,15 +146,14 @@ export const ContactUs = () => {
                 name="message"
                 placeholder="Message"
                 rows="5"
-                value={formData.message}
-                onChange={handleChange}
+                
                 required
               ></textarea>
               <br />
               <Row>
                 <Col lg="12" className="form-group">
                   <button className="btn ac_btn" type="submit">
-                    {formData.loading ? "Sending..." : "Send"}
+                    Send
                   </button>
                 </Col>
               </Row>
